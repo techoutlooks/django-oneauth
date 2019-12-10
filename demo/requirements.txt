@@ -1,0 +1,25 @@
+Babel==2.7.0
+certifi==2019.9.11
+chardet==3.0.4
+dj-database-url==0.5.0
+Django==2.2.7
+django-configurations==2.1
+django-cors-headers==3.2.0
+django-extensions==2.2.5
+django-phonenumber-field==3.0.1
+djangorestframework==3.10.3
+djangorestframework-simplejwt==4.3.0
+idna==2.8
+# Editable install with no version control (oneauth==0.1.0)
+-e /home/ceduth/Documents/Devl/Labs/django-oneauth
+phonenumberslite==8.10.22
+PyJWT==1.7.1
+python-dotenv==0.10.3
+pytz==2019.3
+quickconfigs==0.1.0
+requests==2.22.0
+six==1.13.0
+-e git+https://github.com/techoutlooks/django-smart-models.git@2c6cf6a0e0f64c067db30853d6debb3cf4111bfe#egg=smartmodels
+sqlparse==0.3.0
+twilio==6.33.1
+urllib3==1.25.7
