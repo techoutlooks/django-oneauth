@@ -1,3 +1,4 @@
+.idea/
 demo/db.sqlite3
 oneauth.egg-info/
 venv/

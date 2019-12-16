@@ -16,7 +16,7 @@ urlpatterns = [
 
 # ========== Endpoints [User]
 router = DefaultRouter()
-router.register('users', one_views.OneUserViewSet, base_name='user')
+router.register('users', one_views.OneUserViewSet, basename='user')
 router.register('permissions', one_views.OnePermissionViewSet, basename='permission')
 router.register('roles', one_views.OneRoleViewSet, basename='role')
 
