@@ -13,12 +13,15 @@ def create_user_account(sender, instance, created, **kwargs):
         opts.update(_make_smart_fields(Action.CREATE, instance))
         Account.objects.create(user=instance, **opts)
 
-
-@receiver(post_save, sender=get_user_model())
-def update_user_account(sender, instance, **kwargs):
     _set_smart_fields(instance.account, Action.UPDATE, instance)
     instance.account.save()
 
+
+# @receiver(post_save, sender=get_user_model())
+# def update_user_account(sender, instance, **kwargs):
+#     _set_smart_fields(instance.account, Action.UPDATE, instance)
+#     instance.account.save()
+#
 
 @receiver(post_delete, sender=get_user_model())
 def delete_user_account(sender, instance, **kwargs):
