@@ -6,10 +6,13 @@ from django.utils.translation import ugettext_lazy as _
 
 from oneauth.apps import AuthConfig
 
+# Make ONEAUTH_* setting names
+# eg. ONEAUTH_PERMISSION_APP
 app_label = AuthConfig.name
 add_prefix = lambda x: '%s_%s' % (app_label.upper(), x.upper())
 
 
+DEFAULT_USER_ATTR_NAME = '_current_user'
 DEFAULT_GROUP_PERMS = dict()
 DEFAULT_OTP_TOKEN_KEY = 'otp'
 DEFAULT_SMS_GATEWAY = 'Fake'
@@ -32,6 +35,7 @@ def get_setting(name):
         # ==== [Permissions]
         # ONEAUTH_PERMISSION_APP: attempt to fix perms from this app only. from `post_migrate` signal.
         # ONEAUTH_GROUP_PERMISSIONS: assigns the permissions that each group should have.
+        'LOCAL_USER_ATTR_NAME': getattr(settings, add_prefix('LOCAL_USER_ATTR_NAME'), DEFAULT_USER_ATTR_NAME),
         'PERMISSIONS_APP': getattr(settings, add_prefix('PERMISSIONS_APP'), app_label),
         'GROUP_PERMISSIONS': getattr(settings, add_prefix('GROUP_PERMISSIONS'), DEFAULT_GROUP_PERMS),
 

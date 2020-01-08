@@ -16,12 +16,13 @@ setuptools.setup(
     python_requires='>=3.6',
     install_requires=[
         "Django>=2.2",
-        "phonenumberslite>=8.10",
-        "django-phonenumber-field>=3.0",
+        "phonenumbers>=8.11.1",
+        "django-phonenumber-field>=4.0",
         "django-cors-headers>=3.2",
         "djangorestframework>=3.10",
         "djangorestframework-simplejwt>=4.3",
         "django-rest-framework-loopback-js-filters>=1.1.4",
-        "twilio>=6.33.1"
+        "twilio>=6.33.1",
+        "django-pandas>=0.6.1"
     ]
 )

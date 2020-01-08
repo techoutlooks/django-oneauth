@@ -22,6 +22,7 @@ Features
 - Optional sign-up validation via OTP (email, SMS).
 - Model, Manager Admin and View mixins to help build custom Django components.
 - Concrete User model exists that may be swapped for custom one.
+- Get the current user in situations when a request object doesn't avail, eg. from models. 
 
 Requirements
 ---------------
