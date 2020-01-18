@@ -69,6 +69,10 @@ class AbstractOneUser(SmartModel, AbstractBaseUser, PermissionsMixin):
         """
         send_mail(subject, message, from_email, [self.email], **kwargs)
 
+    @property
+    def is_logged_in(self):
+        return type(self).objects.is_user_logged_in(self)
+
 
 class User(AbstractOneUser):
     class Meta(AbstractOneUser.Meta):
