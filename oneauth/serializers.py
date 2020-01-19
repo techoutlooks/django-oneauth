@@ -61,6 +61,8 @@ class OTPValidationError(InvalidToken):
 class OneTokenObtainPairSerializer(TokenObtainPairSerializer):
     """
     One-factor authentication serializer.
+    Embeds the user object along with the tokens pair on login.
+
     If OTP is enabled, and the user have never been validated, OTP token check is performed.
     If the OTP validation succeeds, an access/refresh token pair is returned,
      otherwise, subsequent validation exception is raised.
@@ -81,7 +83,9 @@ class OneTokenObtainPairSerializer(TokenObtainPairSerializer):
         return otp_token
 
     def validate(self, attrs):
-        """ If first-time login, user-submitted OTP token is incorrect, raise an exception. """
+        """ 
+        If is first-time login, and user-submitted OTP token is incorrect, raise an exception. 
+        """
 
         data = super().validate(attrs)
         if get_setting('OTP_ENABLED') and not self.user.verified:
@@ -90,7 +94,7 @@ class OneTokenObtainPairSerializer(TokenObtainPairSerializer):
         # one-factor auth here,
         # let's also include the user's data in the response
         user_data = OneUserSerializer(self.user).data
-        data.update(user_data)
+        data.update(user=user_data)
         return data
 
 
